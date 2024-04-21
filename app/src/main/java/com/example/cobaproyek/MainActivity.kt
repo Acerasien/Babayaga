@@ -1,6 +1,7 @@
 package com.example.cobaproyek
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.Button
@@ -11,7 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity(), OnClickListener {
-    var result=0
+
 
     private lateinit var button0: Button
     private lateinit var button1: Button
@@ -28,15 +29,19 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         button0 = findViewById(R.id.button0)
         button1 = findViewById(R.id.button1)
         texxresult = findViewById(R.id.displayTextView)
+
+        button0.setOnClickListener(this)
+        button1.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
+        Log.d("aa", "data:${v?.id}" )
         when(v?.id){
             R.id.button0 -> {
-                texxresult.text = button0.text.toString()
+                texxresult.text = texxresult.text.toString() + button0.text.toString()
             }
             R.id.button1 -> {
-                texxresult.text = button1.text.toString()
+                texxresult.text = texxresult.text.toString() + button1.text.toString()
             }
             R.id.button2 -> {
 
